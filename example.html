@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>lil-gui-input</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <div id="params"></div>
+    <script type="module">
+
+        import GUI from '/lil-gui/lil-gui.esm.js';
+        import InputController from './InputController.esm.js';
+
+        const gui = new GUI();
+
+        GUI.prototype.addInput = function () {
+            return new InputController( this, ...arguments );
+        };
+
+        const params = {
+            color: '#ff0000',
+            date: '1994-02-13',
+            datetimelocal: '',
+            email: 'guy@some.thing',
+            file: null,
+            month: '2018-05',
+            number: '123',
+            password: 'secret',
+            range: '123',
+            search: '',
+            tel: '202-555-0112',
+            text: 'foo',
+            time: '00:00:00',
+            url: 'https://github.com',
+            week: '2017-W01',
+        };
+
+        function printParams() {
+            const paramsStr = JSON.stringify( params, null, 2 );
+            const paramsEl = document.getElementById( 'params' );
+            paramsEl.innerHTML = '<pre>' + paramsStr + '</pre>';
+        }
+        gui.onChange( printParams );
+
+        for ( const key in params ) {
+            const type = ( key === 'datetimelocal' ) ? 'datetime-local' : key;
+            const input = gui.addInput( params, key, type );
+        }
+
+        printParams();
+    </script>
+</body>
+
+</html>
