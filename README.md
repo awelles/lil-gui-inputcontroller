@@ -1,4 +1,7 @@
 # lil-gui-inputcontroller
+
+[Live Example](https://awelles.github.io/lil-gui-inputcontroller/example.html)
+
 Testing Controller extensions for lil-gui.
 
 Generic input with definable type. 
