@@ -1,8 +1,11 @@
 # lil-gui-inputcontroller
-Custom controller for lil-gui. Generic input with definable type
+Testing Controller extensions for lil-gui.
+
+Generic input with definable type. 
 
 Basic usage:
 
+```js
 const gui = new GUI();
 
 GUI.prototype.addInput = function () {
@@ -12,6 +15,7 @@ GUI.prototype.addInput = function () {
 const params = { eventDate: '1994-02-13' }; 
 
 gui.addInput( params, 'eventDate', 'date' );
+```
 
 Mostly functional types:  color, date, datetimelocal, email, file, month, number, password, range, search, tel, text, time, url, week
 
